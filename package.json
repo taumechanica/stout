@@ -1,0 +1,40 @@
+{
+    "name": "@taumechanica/stout",
+    "version": "1.0.0",
+    "description": "Collection of useful algorithms and data structures in TypeScript",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/taumechanica/stout.git"
+    },
+    "author": "Eugene Baranovsky <eugen.steppenwolf@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/taumechanica/stout/issues"
+    },
+    "homepage": "https://github.com/taumechanica/stout#readme",
+    "devDependencies": {
+        "@types/jest": "^28.1.4",
+        "jest": "^28.1.2",
+        "ts-jest": "^28.0.5",
+        "typescript": "^4.7.4"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": ".",
+        "testEnvironment": "node",
+        "testRegex": ".spec.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        }
+    }
+}
