@@ -1,6 +1,6 @@
 {
     "name": "@taumechanica/stout",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Collection of useful algorithms and data structures in TypeScript",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -12,6 +12,10 @@
         "type": "git",
         "url": "git+https://github.com/taumechanica/stout.git"
     },
+    "keywords": [
+        "heap",
+        "typescript"
+    ],
     "author": "Eugene Baranovsky <eugen.steppenwolf@gmail.com>",
     "license": "MIT",
     "bugs": {

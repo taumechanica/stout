@@ -58,10 +58,6 @@ export class Heap<K, V> {
      * @param value item value
      */
     public insert(key: K, value: V): void {
-        if (this.$count >= this.$items.length) {
-            this.$items.length *= 2;
-        }
-
         let j = this.$count + 1;
         while (true) {
             const i = (j / 2) >> 0;
