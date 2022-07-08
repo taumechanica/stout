@@ -31,11 +31,11 @@ export class Heap<K, V> {
     /**
      * Creates a new instance of heap
      *
-     * @param compare function used to determine the order of the item keys
+     * @param $compare function used to determine the order of the item keys
      * @param items (unordered) array of initial heap items
      */
     public constructor(
-        private compare: (a: K, b: K) => number,
+        private $compare: (a: K, b: K) => number,
         ...items: Array<HeapItem<K, V>>
     ) {
         this.$items = new Array();
@@ -58,15 +58,15 @@ export class Heap<K, V> {
      * @param value item value
      */
     public insert(key: K, value: V): void {
-        let j = this.$count + 1;
+        let j = this.$count;
         while (true) {
-            const i = (j / 2) >> 0;
-            if (i == 0 || this.compare(this.$items[i - 1].key, key) > 0) {
-                this.$items[j - 1] = { key, value };
+            const i = (j - 1) / 2 >> 0;
+            if (j == 0 || this.$compare(this.$items[i].key, key) >= 0) {
+                this.$items[j] = { key, value };
                 this.$count++;
                 break;
             } else {
-                this.$items[j - 1] = this.$items[i - 1];
+                this.$items[j] = this.$items[i];
                 j = i;
             }
         }
@@ -74,26 +74,39 @@ export class Heap<K, V> {
 
     /**
      * Retrieves the item with the largest/smallest
-     * key (depending on the compare function)
+     * key (depending on the comparison function)
      */
-    public remove(): HeapItem<K, V> {
+    public remove(): HeapItem<K, V> | undefined {
+        if (this.$count == 0) return undefined;
+
         const result = this.$items[0];
 
-        let i: number, j = 1;
-        const r = this.$count - 1;
-        while (true) {
-            i = j;
-            j *= 2;
-
-            if (j > r) break;
-            if (j != r && this.compare(this.$items[j - 1].key, this.$items[j].key) <= 0) j++;
-            if (this.compare(this.$items[r].key, this.$items[j - 1].key) > 0) break;
-
-            this.$items[i - 1] = this.$items[j - 1];
+        if (this.$count > 1) {
+            this.$items[0] = this.$items[this.$count - 1];
         }
 
-        this.$items[i - 1] = this.$items[r];
-        this.$count--;
+        this.$items.length = --this.$count;
+        if (this.$count < 2) return result;
+
+        let i = 0;
+        let j, k: number;
+        const c = this.$count;
+        while (true) {
+            j = 2 * i + 1, k = i;
+            if (j < c && this.$compare(this.$items[j].key, this.$items[k].key) > 0) {
+                k = j;
+            }
+
+            j++;
+            if (j < c && this.$compare(this.$items[j].key, this.$items[k].key) > 0) {
+                k = j;
+            }
+
+            if (k == i) break;
+
+            [this.$items[i], this.$items[k]] = [this.$items[k], this.$items[i]];
+            i = k;
+        }
 
         return result;
     }

@@ -30,7 +30,12 @@ describe('Heap', () => {
         expect(heap.count).toEqual(3);
     });
 
-    it('should remove items in right order (from largest to smallest)', () => {
+    it('should not remove anything when heap is empty', () => {
+        const heap = new Heap<number, string>((a, b) => a - b);
+        expect(heap.remove()).toBeUndefined();
+    });
+
+    it('should remove items in the right order (max-heap)', () => {
         const heap = new Heap<number, string>((a, b) => a - b, ...items);
 
         heap.insert(1, 'one');
@@ -50,7 +55,7 @@ describe('Heap', () => {
         expect(heap.remove()).toEqual({ key: 1, value: 'one' });
     });
 
-    it('should remove items in right order (from smallest to largest)', () => {
+    it('should remove items in the right order (min-heap)', () => {
         const heap = new Heap<number, string>((a, b) => b - a, ...items);
 
         heap.insert(1, 'one');
@@ -70,7 +75,7 @@ describe('Heap', () => {
         expect(heap.remove()).toEqual({ key: 5, value: 'five' });
     });
 
-    it('should remove items in right order (alphabetically)', () => {
+    it('should remove items in the right order (lexicographic min-heap)', () => {
         const heap = new Heap<string, number>((a, b) => b.localeCompare(a));
 
         heap.insert('one', 1);

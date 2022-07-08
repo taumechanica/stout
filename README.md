@@ -12,7 +12,7 @@ npm install --save @taumechanica/stout
 
 ### Heap
 
-To create a heap specify the key and value types, keys comparison function and optional array of initial items:
+Also known as a partially ordered complete binary tree. To create a heap specify 1) key and value types, 2) key comparison function and 3) optional array of initial items:
 
 ```ts
 import { Heap } from '@taumechanica/stout';
