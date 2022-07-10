@@ -79,13 +79,14 @@ export class Heap<K, V> {
     public remove(): HeapItem<K, V> | undefined {
         if (this.$count == 0) return undefined;
 
-        const result = this.$items[0];
+        const { $items } = this;
+        const result = $items[0];
 
         if (this.$count > 1) {
-            this.$items[0] = this.$items[this.$count - 1];
+            $items[0] = $items[this.$count - 1];
         }
 
-        this.$items.length = --this.$count;
+        $items.length = --this.$count;
         if (this.$count < 2) return result;
 
         let i = 0;
@@ -93,18 +94,18 @@ export class Heap<K, V> {
         const c = this.$count;
         while (true) {
             j = 2 * i + 1, k = i;
-            if (j < c && this.$compare(this.$items[j].key, this.$items[k].key) > 0) {
+            if (j < c && this.$compare($items[j].key, $items[k].key) > 0) {
                 k = j;
             }
 
             j++;
-            if (j < c && this.$compare(this.$items[j].key, this.$items[k].key) > 0) {
+            if (j < c && this.$compare($items[j].key, $items[k].key) > 0) {
                 k = j;
             }
 
             if (k == i) break;
 
-            [this.$items[i], this.$items[k]] = [this.$items[k], this.$items[i]];
+            [$items[i], $items[k]] = [$items[k], $items[i]];
             i = k;
         }
 
