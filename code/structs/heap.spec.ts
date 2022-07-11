@@ -1,50 +1,55 @@
 import { Heap } from './heap';
 
 describe('Heap', () => {
-    const items = [
+    type HeapItem = {
+        key: number;
+        value: string;
+    };
+
+    const items = new Array<HeapItem>(
         { key: 5, value: 'five' },
         { key: 3, value: 'three' },
         { key: 4, value: 'four' }
-    ];
+    );
 
     it('should create an empty heap', () => {
-        const heap = new Heap<number, string>((a, b) => a - b);
+        const heap = new Heap<HeapItem>((a, b) => a.key - b.key);
         expect(heap.count).toEqual(0);
     });
 
     it('should initialize heap items', () => {
-        const heap = new Heap<number, string>((a, b) => a - b, ...items);
+        const heap = new Heap<HeapItem>((a, b) => a.key - b.key, ...items);
         expect(heap.count).toEqual(3);
     });
 
     it('should insert new items', () => {
-        const heap = new Heap<number, string>((a, b) => a - b);
+        const heap = new Heap<HeapItem>((a, b) => a.key - b.key);
 
-        heap.insert(1, 'one');
+        heap.insert({ key: 1, value: 'one' });
         expect(heap.count).toEqual(1);
 
-        heap.insert(2, 'two');
+        heap.insert({ key: 2, value: 'two' });
         expect(heap.count).toEqual(2);
 
-        heap.insert(3, 'three');
+        heap.insert({ key: 3, value: 'three' });
         expect(heap.count).toEqual(3);
     });
 
     it('should not remove anything when heap is empty', () => {
-        const heap = new Heap<number, string>((a, b) => a - b);
+        const heap = new Heap<HeapItem>((a, b) => a.key - b.key);
         expect(heap.remove()).toBeUndefined();
     });
 
     it('should remove items in the right order (max-heap)', () => {
-        const heap = new Heap<number, string>((a, b) => a - b, ...items);
+        const heap = new Heap<HeapItem>((a, b) => a.key - b.key, ...items);
 
-        heap.insert(1, 'one');
+        heap.insert({ key: 1, value: 'one' });
         expect(heap.count).toEqual(4);
 
-        heap.insert(2, 'two');
+        heap.insert({ key: 2, value: 'two' });
         expect(heap.count).toEqual(5);
 
-        heap.insert(3, 'three');
+        heap.insert({ key: 3, value: 'three' });
         expect(heap.count).toEqual(6);
 
         expect(heap.remove()).toEqual({ key: 5, value: 'five' });
@@ -56,15 +61,15 @@ describe('Heap', () => {
     });
 
     it('should remove items in the right order (min-heap)', () => {
-        const heap = new Heap<number, string>((a, b) => b - a, ...items);
+        const heap = new Heap<HeapItem>((a, b) => b.key - a.key, ...items);
 
-        heap.insert(1, 'one');
+        heap.insert({ key: 1, value: 'one' });
         expect(heap.count).toEqual(4);
 
-        heap.insert(2, 'two');
+        heap.insert({ key: 2, value: 'two' });
         expect(heap.count).toEqual(5);
 
-        heap.insert(3, 'three');
+        heap.insert({ key: 3, value: 'three' });
         expect(heap.count).toEqual(6);
 
         expect(heap.remove()).toEqual({ key: 1, value: 'one' });
@@ -76,23 +81,23 @@ describe('Heap', () => {
     });
 
     it('should remove items in the right order (lexicographic min-heap)', () => {
-        const heap = new Heap<string, number>((a, b) => b.localeCompare(a));
+        const heap = new Heap<string>((a, b) => b.localeCompare(a));
 
-        heap.insert('one', 1);
+        heap.insert('one');
         expect(heap.count).toEqual(1);
 
-        heap.insert('two', 2);
+        heap.insert('two');
         expect(heap.count).toEqual(2);
 
-        heap.insert('three', 3);
+        heap.insert('three');
         expect(heap.count).toEqual(3);
 
-        heap.insert('four', 4);
+        heap.insert('four');
         expect(heap.count).toEqual(4);
 
-        expect(heap.remove()).toEqual({ key: 'four', value: 4 });
-        expect(heap.remove()).toEqual({ key: 'one', value: 1 });
-        expect(heap.remove()).toEqual({ key: 'three', value: 3 });
-        expect(heap.remove()).toEqual({ key: 'two', value: 2 });
+        expect(heap.remove()).toEqual('four');
+        expect(heap.remove()).toEqual('one');
+        expect(heap.remove()).toEqual('three');
+        expect(heap.remove()).toEqual('two');
     });
 });

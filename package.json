@@ -1,6 +1,6 @@
 {
     "name": "@taumechanica/stout",
-    "version": "1.0.3",
+    "version": "2.0.0",
     "description": "Collection of useful algorithms and data structures in TypeScript",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -14,6 +14,8 @@
     },
     "keywords": [
         "heap",
+        "heapsort",
+        "priority queue",
         "typescript"
     ],
     "author": "Eugene Baranovsky <eugen.steppenwolf@gmail.com>",
