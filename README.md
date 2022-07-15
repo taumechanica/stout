@@ -70,7 +70,7 @@ The console output will be:
 
 Sorts an array in time not exceeding *2Nlog<sub>2</sub>N*.
 
-To sort an array specify item comparison function:
+To sort an array do:
 
 ```ts
 import { heapsort } from '@taumechanica/stout';
@@ -84,6 +84,25 @@ The console output will be:
 
 ```
 [1, 3, 4, 7, 9]
+```
+
+**Shuffle**
+
+Shuffles a section of an array by the Fisher-Yates algorithm.
+
+To shuffle the entire array do:
+
+```ts
+import { shuffle } from '@taumechanica/stout';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+shuffle(array);
+```
+
+To shuffle a section specify the start and end indices within the array:
+
+```ts
+shuffle(array, 3, 5);
 ```
 
 
