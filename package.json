@@ -1,6 +1,6 @@
 {
     "name": "@taumechanica/stout",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "Collection of useful algorithms and data structures in TypeScript",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -26,9 +26,9 @@
     },
     "homepage": "https://github.com/taumechanica/stout#readme",
     "devDependencies": {
-        "@types/jest": "^28.1.5",
+        "@types/jest": "^28.1.6",
         "jest": "^28.1.3",
-        "ts-jest": "^28.0.6",
+        "ts-jest": "^28.0.7",
         "typescript": "^4.7.4"
     },
     "jest": {

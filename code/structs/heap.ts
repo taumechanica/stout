@@ -64,4 +64,25 @@ export class Heap<T> {
         heapifyDown(items, this.compare, 0);
         return result;
     }
+
+    /**
+     * Walks over the heap items in order of their priority
+     *
+     * @param visit function to be called for each item in the heap
+     */
+    public traverse(visit: (item: T) => void): void {
+        const items = this.items.slice();
+        while (items.length > 0) {
+            visit(items[0]);
+
+            if (items.length > 1) {
+                items[0] = items[items.length - 1];
+            }
+
+            items.length--;
+            if (items.length > 1) {
+                heapifyDown(items, this.compare, 0);
+            }
+        }
+    }
 }

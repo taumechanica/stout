@@ -45,6 +45,23 @@ heap.insert({ key: 2, value: 'two' });
 heap.insert({ key: 3, value: 'three' });
 ```
 
+To iterate over the heap items in the order determined by the comparison function do:
+
+```ts
+heap.traverse(({ key }) => console.log(key));
+```
+
+The console output will be:
+
+```
+5
+4
+3
+3
+2
+1
+```
+
 To retrieve all items in the order determined by the comparison function do:
 
 ```ts
@@ -125,3 +142,7 @@ npm run build
 ```
 npm run test
 ```
+
+### Inspiration
+
+[Generic binary heap in TypeScript](https://dev.to/taumechanica/generic-binary-heap-in-typescript-ilc)
