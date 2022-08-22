@@ -51,7 +51,7 @@ To iterate over the heap items in the order determined by the comparison functio
 heap.traverse(({ key }) => console.log(key));
 ```
 
-The console output will be:
+Console output will be:
 
 ```
 5
@@ -70,7 +70,7 @@ while (heap.count > 0) {
 }
 ```
 
-The console output will be:
+Console output will be:
 
 ```
 { key: 5, value: 'five' }
@@ -97,7 +97,7 @@ heapsort(array, (a, b) => a - b);
 console.log(array);
 ```
 
-The console output will be:
+Console output will be:
 
 ```
 [1, 3, 4, 7, 9]
@@ -120,6 +120,50 @@ To shuffle a section specify the start and end indices within the array:
 
 ```ts
 shuffle(array, 3, 5);
+```
+
+### Utilities
+
+**Mean value**
+
+To calculate the mean value of an array of numbers do:
+
+```ts
+import { mean } from '@taumechanica/stout';
+
+console.log(mean([4, 1, 8, 4, 9]));
+```
+
+Console output will be:
+
+```
+5.2
+```
+
+**Median value**
+
+To calculate the median value of an array of numbers do:
+
+```ts
+import { median } from '@taumechanica/stout';
+
+console.log(median([4, 1, 9, 6, 3, 2, 5, 8]));
+```
+
+Console output will be:
+
+```
+4.5
+```
+
+**Random integer**
+
+To generate random integer in `[min; max]` do:
+
+```ts
+import { randint } from '@taumechanica/stout';
+
+const r = randint(-10, 10);
 ```
 
 

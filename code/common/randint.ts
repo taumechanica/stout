@@ -1,8 +1,8 @@
 /**
- * Generates random integer in [min; max)
+ * Generates random integer in [min; max]
  *
  * @param min minimum value (inclusive)
- * @param max maximum value (exclusive)
+ * @param max maximum value (inclusive)
  */
 export function randint(min: number, max: number) {
     min = Math.ceil(min), max = Math.floor(max);
