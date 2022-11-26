@@ -1,3 +1,4 @@
+export * from './algorithms/align';
 export * from './algorithms/heapsort';
 export * from './algorithms/shuffle';
 

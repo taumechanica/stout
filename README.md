@@ -83,6 +83,33 @@ Console output will be:
 
 ### Algorithms
 
+**Alignment**
+
+Calculates optimal alignment for two strings as an array of deletion/insertion operations using the Wagner-Fischer algorithm. To find an alignment do:
+
+```ts
+import { align } from '@taumechanica/stout';
+
+const alignment = align('rests', 'stress');
+
+alignment.forEach(({ del }) => {
+    process.stdout.write(del ?? ' ');
+});
+process.stdout.write('\n');
+
+alignment.forEach(({ ins }) => {
+    process.stdout.write(ins ?? ' ');
+});
+process.stdout.write('\n');
+```
+
+Console output will be:
+
+```
+  rests
+stres s
+```
+
 **HeapSort**
 
 Sorts an array in time not exceeding *2Nlog<sub>2</sub>N*.

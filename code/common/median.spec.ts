@@ -1,6 +1,6 @@
 import { median } from './median';
 
-describe('Median', () => {
+describe('median', () => {
     it('should calculate array median value', () => {
         expect(median([])).toEqual(0);
         expect(median([1])).toEqual(1);

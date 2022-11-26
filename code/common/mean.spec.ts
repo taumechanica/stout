@@ -1,6 +1,6 @@
 import { mean } from './mean';
 
-describe('Mean', () => {
+describe('mean', () => {
     it('should calculate array mean value', () => {
         expect(mean([])).toEqual(0);
         expect(mean([1])).toEqual(1);

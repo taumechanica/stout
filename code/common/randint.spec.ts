@@ -1,6 +1,6 @@
 import { randint } from './randint';
 
-describe('RandInt', () => {
+describe('randint', () => {
     it('should generate random integer', () => {
         for (let i = 0; i < 50; i++) {
             const r = randint(-10, 10);

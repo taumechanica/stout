@@ -1,6 +1,6 @@
 {
     "name": "@taumechanica/stout",
-    "version": "2.3.1",
+    "version": "2.4.0",
     "description": "Collection of useful algorithms and data structures in TypeScript",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -13,12 +13,13 @@
         "url": "git+https://github.com/taumechanica/stout.git"
     },
     "keywords": [
+        "alignment",
         "heap",
         "heapsort",
         "mean",
         "median",
-        "random integer",
         "priority queue",
+        "random integer",
         "shuffle",
         "typescript"
     ],
@@ -29,10 +30,10 @@
     },
     "homepage": "https://github.com/taumechanica/stout#readme",
     "devDependencies": {
-        "@types/jest": "^29.1.1",
-        "jest": "^29.1.2",
+        "@types/jest": "^29.2.3",
+        "jest": "^29.3.1",
         "ts-jest": "^29.0.3",
-        "typescript": "^4.8.4"
+        "typescript": "^4.9.3"
     },
     "jest": {
         "moduleFileExtensions": [

@@ -1,6 +1,6 @@
 import { heapsort } from './heapsort';
 
-describe('HeapSort', () => {
+describe('heapsort', () => {
     it('should sort an array (asc) #0', () => {
         const array = [3, 1, 7, 4, 9];
         heapsort(array, (a, b) => a - b);

@@ -1,6 +1,6 @@
 import { shuffle } from './shuffle';
 
-describe('Shuffle', () => {
+describe('shuffle', () => {
     it('should shuffle an array', () => {
         const a = Array.from(Array(27).keys());
         const b = a.slice();

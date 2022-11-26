@@ -1,6 +1,6 @@
 import { Heap } from './heap';
 
-describe('Heap', () => {
+describe('heap', () => {
     type HeapItem = {
         key: number;
         value: string;
