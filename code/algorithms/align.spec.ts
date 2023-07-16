@@ -12,4 +12,9 @@ describe('align', () => {
         expect(alignment[5]).toEqual({ del: 't' });
         expect(alignment[6]).toEqual({ del: 's', ins: 's' });
     });
+
+    it('should be tolerant to empty strings', () => {
+        const alignment = align('', '');
+        expect(alignment.length).toEqual(0);
+    });
 });

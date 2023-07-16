@@ -7,3 +7,4 @@ export * from './common/median';
 export * from './common/randint';
 
 export * from './structs/heap';
+export * from './structs/matrix';

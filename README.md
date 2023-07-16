@@ -81,6 +81,80 @@ Console output will be:
 { key: 1, value: 'one' }
 ```
 
+**Matrix**
+
+To create a matrix specify the dimensions (number of rows and columns) and initial items:
+
+```ts
+import { Matrix } from '@taumechanica/stout';
+
+const m = new Matrix(2, 4, [
+    1, 2, 3, 4,
+    5, 6, 7, 8
+]);
+```
+
+To multiply two matrices do:
+
+```ts
+const a = new Matrix(
+    2, 2, [
+        1, 4,
+        0, 3
+    ]
+);
+const b = new Matrix(
+    2, 3, [
+        0, 3, 0,
+        2, 1, 4
+    ]
+);
+const c = a.multiply(b);
+```
+
+Note that the number of columns of the left matrix should match the number of rows of the right matrix. The resulting matrix `c` will be:
+
+```
+[
+    8, 7, 16,
+    6, 3, 12
+]
+```
+
+To transpose a matrix do:
+
+```ts
+const a = new Matrix(
+    2, 3, [
+        0, 1, 2,
+        3, 4, 5
+    ]
+);
+const b = a.transpose();
+```
+
+The resulting matrix `b` will be:
+
+```
+[
+    0, 3,
+    1, 4,
+    2, 5
+]
+```
+
+To factorize a matrix into two matrices know as weight matrix `w` and feature matrix `h` using multiplicative update rules specify the number of features you need and the number of iterations:
+
+```ts
+const m = new Matrix(2, 2, [
+    22, 28,
+    49, 64
+]);
+const [w, h] = m.factorize(3, 100);
+```
+
+If we now multiply the matrices `w` and `h` we get a matrix close to the original.
+
 ### Algorithms
 
 **Alignment**
@@ -132,21 +206,15 @@ Console output will be:
 
 **Shuffle**
 
-Shuffles a section of an array by the Fisher-Yates algorithm.
+Shuffles an array by the Fisher-Yates algorithm.
 
-To shuffle the entire array do:
+To shuffle the array do:
 
 ```ts
 import { shuffle } from '@taumechanica/stout';
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 shuffle(array);
-```
-
-To shuffle a section specify the start and end indices within the array:
-
-```ts
-shuffle(array, 3, 5);
 ```
 
 ### Utilities
