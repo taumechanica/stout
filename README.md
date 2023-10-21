@@ -143,7 +143,7 @@ The resulting matrix `b` will be:
 ]
 ```
 
-To factorize a matrix into two matrices known as weight matrix `w` and feature matrix `h` using multiplicative update rules, specify the number of features you need and the number of iterations:
+To factorize a non-negative matrix into two matrices known as weight matrix `w` and feature matrix `h` using multiplicative update rules, specify the number of features you need and the number of iterations:
 
 ```ts
 const m = new Matrix(2, 2, [
