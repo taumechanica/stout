@@ -1,5 +1,5 @@
 /**
- * Calculates the mean value of an array of numbers
+ * Calculates the median value of an array of numbers
  * (side effect: mutates the input array)
  *
  * @param arr numeric array
